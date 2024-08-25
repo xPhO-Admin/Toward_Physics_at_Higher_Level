@@ -1,0 +1,273 @@
+\begin{center}
+\begin{enumerate}[label=(\alph*)]
+\item 
+    \begin{figure}[ht]
+    \centering
+    \scalebox{1}{  
+    \begin{circuitikz}[european]
+        { \sffamily <
+        [american,font=\small]
+        \draw
+        (0,0) node[op amp] (opamp) {}
+     (opamp.+) to [short] ++ (-0.0025,0) to ++(0,-1)
+        (opamp.-) to ++(-1,0)
+        to [short, -o] (-1.19,0.49) node[below]{$M$}
+        (opamp.out) to [short,-o] ++(0.62,0) node[right] {}
+     (1.75,-0.5) node[right]{$V_\text{out}$}
+        (opamp.-) to [short] ++(0,1) to [R,l={$R_f$},i>=$I$] ++(2.4,0) to (opamp.out)
+        (-2,0.49) to [R, l_=$R_0$,i<=$I$] (-4,0.49)
+        to [short, -o] (-5,0.49) node[left]
+        {$V_\text{in}$}
+        (-1.19,-1.5) -- (-1.19,-1) node[ground]{};
+        > }
+    ;\end{circuitikz}}
+    \label{fig:63}
+    \end{figure}    
+Từ điều kiện lý tưởng, nhánh dây đi từ $M$ đến OPAMP không có dòng đi qua. Vì vậy, cường độ dòng điện đi qua 2 điện trở $R_0$ và $R_f$ là bằng nhau và bằng $I$.
+Áp dụng định luật Ohm cho hai đoạn mạch chứa $R_0$ và $R_f$, ta suy ra được đẳng thức sau:
+\begin{equation}
+    I = \dfrac{V_\text{in}-V_M}{R_0} = \dfrac{V_M-V_\text{out}}{R_f}.
+    \label{eq:59}
+\end{equation}
+Vì theo điều kiện lý tưởng, $V_M = 0$. Vậy nên, ta có:
+    \begin{equation}
+    \dfrac{V_\text{in}}{R_0} = - \dfrac{V_\text{out}}{R_f}.
+     \label{eq:60}
+    \end{equation}
+Từ đây, ta có biểu thức xác định điện thế đầu ra của mạch khuếch đại đảo:
+    \begin{equation}
+     \boxed{V_\text{out} = - \dfrac{ R_f }{ R_0 }  { V_\text{in}. }}
+     \label{eq:64}
+    \end{equation}    
+Ở đây dấu âm của một đại lượng điện thế có nghĩa là điện thế tại điểm đó thấp hơn $V=0$ một lượng bằng đúng độ lớn của điện thế đó.  
+    \item 
+Hệ điện trở trên 4 nhánh sẽ tương đương với một điện trở $R_0$, tuỳ theo trạng thái của các khoá $K$. Dựa vào các hàm $b_n$ ta có thể xây dựng biểu thức tính điện trở tương đương của hệ. Khi $b_n=0$ nghĩa là điện trở đó bị ngắt khỏi mạch, khi $b_n=1$ nghĩa là điện trở có tham gia vào mạch. 
+
+%Tuy nhiên, ta sẽ không thể tính $R_0$ theo công thức điện trở toàn phần của mạch song song vì nếu xét đầu vào 0 tại điểm D thì biểu thức $\dfrac{1}{b_0 2^0 R} $ sẽ cho giá trị không tồn tại
+%Mong mọi người sửa lại giúp em ạ. Em muốn diễn tả R_0 thay thế cho các giá trị 2^0 R các thứ khi mà nhập xong 0 và 1
+
+Ta thấy rằng, hệ 4 nhánh điện trở là hệ các điện trở mắc song song nhau. Dựa vào trạng thái của các khoá $K$ ta viết được điện trở tương đương $R_0$ tổng quát như sau:
+    \begin{equation}
+    \dfrac{1}{R_0} = \dfrac{b_0}{2^0 R}+\dfrac{b_1}{2^1 R}+\dfrac{b_2}{2^2 R}+\dfrac{b_3}{2^3 R}.
+    \label{eq:65}
+    \end{equation}
+Thay (\ref{eq:65}) vào (\ref{eq:60}), ta tìm được biểu thức của $V_{out}$ theo trạng thái của các khoá $K$.
+    \begin{equation}
+     \boxed{V_\text{out} = -  \dfrac{ R_f}{ R } \left( \dfrac{b_0}{2^0 }+\dfrac{b_1}{2^1 }+\dfrac{b_2}{2^2 }+\dfrac{b_3}{2^3 } \right)V_{in}.}
+     \label{eq:66}
+    \end{equation}
+Thay các trạng thái như bảng đề bài yêu cầu, ta sẽ thu được một bảng như sau. Ta chọn đơn vị của điện thế $V_{out}$ là $\left(-\frac{R_f}{8R}V_{in}\right)$ thì bảng sẽ được điền vào như sau:
+    \begin{table}[ht]
+    \hspace{0.15\textwidth}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    Tín hiệu số & 0000 & 0001 & 0010 & 0011 & 0100 & 0101 & 0110 & 0111 \\ \hline
+    $V_{out} $  &   0  & 1    & 2    & 3    & 4    & 5    &  6   &  7   \\ \hline
+    
+    \end{tabular}
+    \end{table}
+
+    \begin{table}[ht]
+    \hspace{0.15\textwidth}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    Tín hiệu số & 1000 & 1001 & 1010 & 1011 & 1100 & 1101 & 1110 & 1111 \\ \hline
+    $V_{out} $  &  8   &  9   &  10  &   11 & 12   & 13   & 14   & 15   \\ \hline
+
+    \end{tabular}
+    \caption{}
+    \label{Bảng chuyển đổi tín hiệu (Đáp án)}
+    \end{table}
+\item 
+\begin{enumerate}
+\item[1.] 
+    
+
+    Do các đầu nối đất đều có thể nối với nhau nên ta có thể vẽ lại mạch như hình (\ref{S3.Hình 1}). Ta muốn tính điện trở giữa điểm $M$ và $N$. Nhưng do dây có điện thế nối đấy có điện thế bằng nhau tại mọi điểm nên điện trở khi tính ở điểm $N$ cũng bằng khi tính ở điểm $N'$. Đây là một mạch hỗn hợp gồm các thành phần song song và nối tiếp, về cơ bản ta có thể tính được đơn giản điện trở giữa hai điểm $M$ và $N'$ là.
+    \begin{align}
+        R_0 = R_{MN}= R.
+        \label{eq:67}
+    \end{align}
+    
+    %Hình vẽ (1)
+    \begin{figure}[!h]
+        \centering
+        \input{Problem_3/S3.Image/Hình 1}
+        \caption{}
+        \label{S3.Hình 1}
+    \end{figure}
+    
+    Về điện thế $V_{R-2R}$, do hệ nối đất nên ta có $V_{R-2R}=0$.
+\item[2.]
+    
+    Ta vẽ lại mạch ở trạng thái $0001$. Để xét được hệ mạch này ta sẽ ứng dụng định lý Thevenin cho các ô mạch nhỏ hơn. Ta xét ô mạch nằm trong khung.
+    
+    %Hình vẽ (2)
+    \begin{figure}[!h]
+        \centering
+        \input{Problem_3/S3.Image/Hình 2}
+        \caption{}
+        \label{S3.Hình 2}
+    \end{figure}
+
+    Ta ngắt mạch tại hai điểm $A$ và $B$ để tạo ra một tương đương Thevenin, có nguồn $V_{TH}$ và điện trở tương đương $R_{TH}$. Định lý Thevenin cho rằng, bất cứ hệ mạch điện dù có phức tạp đến cũng sẽ có thể vẽ thành một mạch nối tiếp đơn giản.
+    Điều đó được thể hiện ở hình (\ref{S3.Hình 3}). 
+    %Hình vẽ (3)
+    
+    \begin{figure}[h]
+        \centering
+        \input{Problem_3/S3.Image/Hình 3}
+        \caption{}
+        \label{S3.Hình 3}
+    \end{figure}
+
+    Để tìm $V_{TH}$ thì ta cần tìm được $U_{AB}$ khi ngắt các điểm $A$ và $B$. Lúc này mạch sẽ gồm một nguồn $V_{in}$ và hai điện trở $2R$ mắc nối tiếp nhau. Lúc này hiệu điện thế giữa hai điểm $A$ và $B$ là.
+    \begin{align}
+        V_{TH}= U_{AB} = V_{in} \frac{2R}{2R+2R} = \frac{V_{in}}{2}.
+        \label{eq:68}
+    \end{align}
+    Để tìm $R_{TH}$ thì ta tìm $R_{AB}$ khi bỏ nguồn ra khỏi mạch. Lúc này giữa hai điểm $A$ và $B$ sẽ là hai điện trở $2R$ mắc song song nhau. Từ đây điện trở giữa hai điểm $A$ và $B$ là.
+    \begin{align}
+        R_{TH}=R_{AB}= \left(\frac{1}{2R} + \frac{1}{2R} \right)^{-1} = R.
+        \label{eq:69}
+    \end{align}
+
+    Ta ghép hệ mạch trong khung lại mạch chính như sau, và ta xét tiếp tục các ô tiếp theo như hình vẽ và áp dụng định lý Thevenin.
+    %Hình vẽ (4)
+    \begin{figure}[!h]
+        \centering
+        \input{Problem_3/S3.Image/Hình 4}
+        \caption{}
+        \label{S3.Hình 4}
+    \end{figure}
+
+    Mạch trong khung sẽ giống như (Hình số (3)) nhưng thay nguồn $V_{in}$ thành nguồn $V_{in}/2$. Vậy nên ta sẽ thu được được một kết quả tương tự. Ta ghép lại vô mạch thì ta sẽ có hình (\ref{S3.Hình 5}).
+
+    %bổ sung hình 3
+    \begin{align}
+        V_{TH}= \frac{V_{in}}{4} ; R_{TH}= R.
+        \label{eq:70}
+    \end{align}
+    %Hình vẽ (5)
+    \begin{figure}[ht]
+        \centering
+        \input{Problem_3/S3.Image/Hình 5}
+        \caption{}
+        \label{S3.Hình 5}
+    \end{figure}
+
+    %Lập lại các bước trên thêm vài lần ta sẽ có rút gọn được hệ, quá trình tiếp theo sẽ được tóm tắt bởi sơ đồ sau. Ở dấu tương đương cuối, ta tương đương một hiệu điện thế $V_{R-2R}$ như một điện thế $V_{R-2R}$ vì điện thế của điểm $M$ và $A$ đều bằng $0$.
+    Đó chính là phương pháp chính của chúng ta để giải quyết bài toán. Để bài toán bớt cồng kềnh, ta sẽ biểu diễn các bước tiếp theo bằng hình (\ref{S3.Hình 6}). Từ hình thứ hai qua hình thứ ba, ta đổi từ một hiệu điện thế $V_{R-2R}$ sang một điện thế $V_{R-2R}$. Lý do ta có thể thực hiện bởi vì $V_M=0$ nên chênh lệch điện thế giữa nguồn và điểm $M$ vẫn giữ nguyên.
+    %Hình vẽ (6)
+    \begin{figure}[!h]
+        \centering
+        \input{Problem_3/S3.Image/Hình 6}
+        \caption{}
+        \label{S3.Hình 6}
+    \end{figure}
+
+    Từ đây ta tính được hệ trong trạng thái $0001$.
+    \begin{align}
+        V_{R-2R}=\frac{V_{in}}{16} ; R_0 = R.
+        \label{eq:71}
+    \end{align}
+
+    Ta vẽ mạch tại trạng thái $1000$ và áp dụng kết quả từ mục $1.$ của phần (c) cho hệ này. Phần mạch nằm trong khung có quy luật giống với mạch ở trạng thái $0000$, nên ta có thể có phép thu gọn như hình  (\ref{S3.Hình 7-Hình 8}).
+    \begin{figure}[ht]
+        \centering
+        \begin{minipage}{0.53 \textwidth}
+            \input{Problem_3/S3.Image/Hình 7}
+        \end{minipage}
+        {\Large $\Rightarrow$}
+        \begin{minipage}[c]{0.2 \textwidth}
+            \input{Problem_3/S3.Image/Hình 8}
+        \end{minipage}
+        \caption{}
+        \label{S3.Hình 7-Hình 8}
+    \end{figure}
+   
+    
+    Giờ đây ta áp dụng Thevenin cho phần mạch đã rút gọn, với kết quả tương tự được tính ở mục $2.$ ta có thể tính ra được các kết quả sau.
+    
+    \begin{align}
+        V_{R-2R} = \frac{V_{in}}{2} ; R_0 = R.
+        \label{eq:72}
+    \end{align}
+\item[3.]
+    Ta đã làm việc với mạch ở trạng thái $0001$ và $1000$ để biết được số biến đổi của hệ mạch này. Ta nhận ra một điều là, khi áp dụng một lần định lý Thevenin, thì điện thế đầu vào sẽ giảm theo cấp số nhân lùi $2^{-1}$. Vì vậy, dựa vào tính tương tự trong phương pháp làm, ta thấy mạch ở trạng thái $0010$ sẽ phải dùng Thevenin $3$ lần; mạch ở trạng thái $0100$ sẽ phải dùng Thevenin $2$ lần. Vì thế nên ta có thể suy thẳng ra kết quả với từng trạng thái.
+
+    Với mạch $0010$.
+    \begin{align}
+        V_{R-2R}= \frac{V_{in}}{8} ; R_0 = R.
+        \label{eq:73}
+    \end{align}
+
+    Với mạch $0100$
+    \begin{align}
+        V_{R-2R}= \frac{V_{in}}{4} ; R_0 = R.
+        \label{eq:74}
+    \end{align}
+
+    Ta sẽ tổng hợp được một bảng các giá trị như sau. 
+    
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+      Trạng thái & 0001 & 0010 & 0100 & 1000 \\ \hline
+      $V_{R-2R}$ & $V_{in}/16$ & $V_{in}/8$ & $V_{in}/4$ & $V_{in}/2$ \\ \hline 
+      $R_0$ & R & R & R & R \\ \hline
+    \end{tabular}
+    \caption{}
+    \label{Bang muc (c).1}
+    \end{table}
+    
+\item[4.]
+    Sử dụng nguyên lý chồng chập, ta biết ảnh hưởng của từng nguồn độc lập dựa vào bảng \ref{Bang muc (c).1}. Vậy nên tổng những thành phần độc lập này sẽ có ta biểu thức tổng quát $V_{R-2R}$ của trạng thái $b_0 b_1 b_2 b_3$.
+    \begin{align}
+        V_{R-2R}  = V_{in} \left(\frac{b_0}{2} + \frac{b_1}{4} + \frac{b_2}{8} + \frac{b_3}{16} \right).
+        \label{eq:75}
+    \end{align}
+    Cũng dựa vào bảng \ref{Bang muc (c).1} ta biết rằng điện trở tương đương $R_0$ luôn bằng $R$ trong mọi trường hợp, từ đây áp dụng phương trình  (\ref{eq:64}) ta sẽ viết được biểu thức tổng quát của $V_{out}$.
+    \begin{align}
+    \boxed{
+        V_{out} = - \frac{R_f}{R} \left(\frac{b_0}{2} + \frac{b_1}{4} + \frac{b_2}{8} + \frac{b_3}{16} \right)V_{in}.
+        }
+    \label{eq:76}
+    \end{align}
+\end{enumerate}
+
+
+\item 
+\textbf{Phổ điểm}
+    \begin{center}
+    \begin{tabular}{|c|p{8cm}|c|}
+    \hline
+    \multicolumn{1}{|l|}{Phần} & Nội dung & Điểm thành phần \\ 
+    \hline
+\multirow{2}{*}{(a)} & Chứng minh $V_M=0$.                                                                                  & 0.5             \\ \cline{2-3}
+                     & Tính được phương trình (\ref{eq:59}) và suy ra $\alpha$.   
+                     & 0.5             \\ \hline
+\multirow{3}{*}{(b)} & Phương trình (\ref{eq:65}).                               
+                     & 0.25            \\ \cline{2-3}
+                     & Tính được phương trình (\ref{eq:66}).                                           
+                     & 0.25            \\ \cline{2-3}
+                     & Điền bảng \ref{Bảng chuyển đổi tín hiệu(Đề bài)} hoàn chỉnh.                 
+                     & 0.5             \\ \hline
+\multirow{7}{*}{(c)} & Tính được $V_{R-2R}, R_0$ trạng thái $0000$.                                                                       & 0.25            \\ \cline{2-3}
+                     & Phương trình (\ref{eq:68}) và (\ref{eq:69}).                
+                     & 0.25            \\ \cline{2-3}
+                     & Phương trình (\ref{eq:70})                                                   
+                     & 0.25            \\ \cline{2-3}
+                     & Hình (\ref{S3.Hình 6}). Phương trình (\ref{eq:71}).         
+                     & 0.5             \\ \cline{2-3}
+                     & Hình (\ref{S3.Hình 7-Hình 8}). Phương trình (\ref{eq:72}). 
+                     & 0.25            \\ \cline{2-3}
+                     & Phương trình (\ref{eq:73}) và (\ref{eq:74}).                
+                     & 0.25            \\ \cline{2-3}
+                     & Phương trình (\ref{eq:75}) và (\ref{eq:76}).                
+                     & 0.25            \\ \hline
+    \end{tabular}
+    \end{center}
+\end{enumerate}
+\end{center}

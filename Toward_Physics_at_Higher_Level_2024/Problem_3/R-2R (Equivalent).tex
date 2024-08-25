@@ -1,0 +1,27 @@
+\begin{circuitikz}[european]
+\draw
+(0,-0.7727) node[op amp] (opamp) {}
+(opamp.+) to [short] ++ (-0.0025,0) to ++(0,-1) node[ground]{}
+(opamp.-) to ++(-1.316,0)  %Phần dây cực âm kéo dài%
+(opamp.out) to [short,-o] ++(0.62,0) node[right] {}
+(1.75,-0.5) node[right]{$V_\text{out}$}{}
+(opamp.-) to [short] (-1.19,1)  
+(-1.19,1) to [R] (1.5,1)
+(0.21,1.125) node[above]{$R_f$}
+(1.5,1) to (1.5,-0.775)
+
+(-1.19,-0.27) to [short, -o] (-1.19,-0.27)  node[below]{$M$}
+(-1.19,-0.2825) to (-3,-0.2825)
+(-3,-0.2825) to [R, l_=$R_0$] (-5,-0.2825)
+(-5,-0.2825) to (-5,-2)
+(-5,-2) to [short, -o] (-5,-2) node[left]
+{$V_\text{R-2R}$}
+;
+\draw [dashed]
+(-2,1) to (-2,-3)
+(-2,-3) to (-6.5,-3) 
+%(-4.25,-3)node[below]{Hệ tương đương}
+(-6.5,-3) to (-6.5, 1)
+(-6.5, 1) to (-2,1)
+;
+\end{circuitikz}

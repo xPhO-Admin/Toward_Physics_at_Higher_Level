@@ -1,0 +1,162 @@
+\textbf{Mạch chuyển đổi tín hiệu số - tương tự (DAC)}\footnote{ADC: Analog Digital Converter.}
+
+Trong nhiều năm qua, công nghệ số (Digital) với các tín hiệu rời rạc được tổ hợp bởi các bit hai trạng thái 0 và 1\footnote{Trạng thái 0 ứng với dòng điện và điện áp ở mức "thấp" và trạng thái 1 ứng với dòng điện ở mức "cao" trong một chuẩn quy ước. Ví dụ với một số chip, trạng thái 0 ứng với điện áp \( \SI{0}{V} \), trạng thái 1 ứng với điện áp \( \SI{5}{V} \).}, đang dần thay thế các công nghệ tương tự (Analog) với tín hiệu là đại lượng vật lý có giá trị liên tục, trong việc truyền và xử lý, tính toán tín hiệu. Sự chuyển đổi công nghệ này là cần thiết và phù hợp để tín hiệu số ít bị ảnh hưởng bởi các nhiễu của môi trường tạo ra. Nhằm thực hiện các thao tác điều khiển ở đầu ra sau khi xử lý tín hiệu, chúng ta cần một bộ chuyển đổi từ tín hiệu số (dạng các số nhị phân tổ hợp bởi 0 và 1) sang tín hiệu tương tự (dạng các số tự nhiên liên tiếp). Ở bài toán này, chúng ta sẽ khảo sát các mô hình mạch DAC 4 bit đơn giản để hiểu được cơ chế của bộ chuyển đổi này.
+
+%\includegraphics{Problem_3/DAC-Digital-to-Analog-Converter.png}
+\begin{figure}[ht]
+    \centering
+        \scalebox{0.7}{
+        
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,10708); %set diagram left start at 0, and has height of 10708
+
+%Shape: Square [id:dp7634408012332572] 
+\draw  [line width=1.5]  (448,9732) -- (498,9732) -- (498,9782) -- (448,9782) -- cycle ;
+%Shape: Square [id:dp20939471942077437] 
+\draw  [line width=1.5]  (448,9782) -- (498,9782) -- (498,9832) -- (448,9832) -- cycle ;
+%Shape: Square [id:dp7345598092767369] 
+\draw  [line width=1.5]  (448,9832) -- (498,9832) -- (498,9882) -- (448,9882) -- cycle ;
+%Shape: Square [id:dp925543117058345] 
+\draw  [line width=1.5]  (448,9882) -- (498,9882) -- (498,9932) -- (448,9932) -- cycle ;
+%Shape: Square [id:dp39184346268946824] 
+\draw  [line width=1.5]  (448,9932) -- (498,9932) -- (498,9982) -- (448,9982) -- cycle ;
+
+%Straight Lines [id:da19312308479916473] 
+\draw [line width=3]    (534,9858) -- (625.5,9858) ;
+\draw [shift={(631.5,9858)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (16.97,-8.15) -- (0,0) -- (16.97,8.15) -- cycle    ;
+%Shape: Rectangle [id:dp19162202320534494] 
+\draw  [line width=2.25]  (664,9768) -- (769.5,9768) -- (769.5,9938) -- (664,9938) -- cycle ;
+
+%Straight Lines [id:da16165597340033] 
+\draw [line width=3]    (785.5,9857) -- (847.5,9857) ;
+\draw [shift={(853.5,9857)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (16.97,-8.15) -- (0,0) -- (16.97,8.15) -- cycle    ;
+%Straight Lines [id:da09877560081269832] 
+\draw    (864,9930) -- (1068.5,9930) ;
+%Straight Lines [id:da25437838858287787] 
+\draw    (864,9930) -- (864,9757) ;
+%Curve Lines [id:da07716136118610839] 
+\draw [line width=2.25]    (864,9930) .. controls (908.5,9784) and (928.5,9751) .. (966.5,9821) ;
+%Curve Lines [id:da7390366644901443] 
+\draw [line width=2.25]    (966.5,9821) .. controls (987.5,9855) and (1026.5,9851) .. (1066.5,9821) ;
+
+% Text Node
+\draw (405,10004) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\LARGE Tín hiệu số}};
+% Text Node
+\draw (857,10003) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\LARGE Tín hiệu tương tự }};
+% Text Node
+\draw (716.63,9842) node [anchor=north] [inner sep=0.75pt]  [font=\small] [align=left] {{\fontfamily{pcr}\selectfont {\Huge DAC}}};
+% Text Node
+\draw (464,9941) node [anchor=north west][inner sep=0.75pt]   [align=left] {\textbf{{\fontfamily{pcr}\selectfont {\Large 0}}}};
+% Text Node
+\draw (464,9892) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{pcr}\selectfont \textbf{{\Large 1}}}};
+% Text Node
+\draw (464,9840) node [anchor=north west][inner sep=0.75pt]   [align=left] {\textbf{{\fontfamily{pcr}\selectfont {\Large 0}}}};
+% Text Node
+\draw (464,9791) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{pcr}\selectfont \textbf{{\Large 1}}}};
+% Text Node
+\draw (464,9741) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{pcr}\selectfont \textbf{{\Large 1}}}};
+\end{tikzpicture}
+}
+\caption{Sơ đồ biến đổi Digital - Analog}
+\label{Sơ đồ biến đổi Digital - Analog }
+\end{figure}
+\begin{center}
+\begin{enumerate}[label=(\alph*)]
+    \item\textbf{Mạch khuếch đại đảo}
+    
+    Một linh kiện được sử dụng thường xuyên trong mạch chuyển đổi tín hiệu số là OPAMP (Operation amplifier). Xét mạch như hình sau, biết rằng ở trạng thái lý tưởng của mạch hiệu điện thế giữa hai điểm ở hai đầu $(+)$ và $(-)$ là bằng $0$ và không có dòng điện đi qua nhánh nối giữa $M$ và OPAMP. Đầu $(+)$ được nối với thành phần được gọi là nối đất\footnote{Dây nối đất sẽ coi như nối vào một nguồn có điện thế bằng 0. }. Biết rằng hai đại lượng $V_{out}$ và $V_{in}$ tỉ lệ với nhau qua một hằng số $\alpha$, cụ thể là $V_{out} = \alpha V_{in}$. Tìm $\alpha$ theo $R_0$ và $R_f$.
+    \begin{figure}[H]
+        \centering
+        \scalebox{1}{  
+        \begin{circuitikz}[european]
+        { \sffamily <
+        [american,font=\small]
+        \draw
+        (0,0) node[op amp] (opamp) {}
+        (opamp.+) to [short] ++ (-0.0025,0) to ++(0,-1)
+        (opamp.-) to ++(-1,0)
+        to [short, -o] (-1.19,0.49) node[below]{$M$}
+        (opamp.out) to [short,-*] ++(0.62,0) node[right] {}
+        (1.75,-0.5) node[right]{$V_\text{out}$}
+        (opamp.-) to [short] ++(0,1) to [R,l={$R_f$}] ++(2.4,0) to[short, -*] (opamp.out)
+        (-2,0.49) to [R, l_=$R_0$] (-4,0.49)
+        to [short, -o] (-5,0.49) node[left]
+        {$V_\text{in}$}
+        (-2,0.49) to [R, l_=$R_0$,i<=$I$] (-4,0.49)
+        (-1.19,-1.5) -- (-1.19,-1) node[ground]{};
+        > }
+        ;\end{circuitikz}}
+        \caption{Mạch khuếch đại đảo}
+        \label{fig:60}
+    \end{figure}        
+    
+
+    
+    \item \textbf{Mạch DAC R/2nR (Binary Weighted Input DAC)}
+    \begin{figure}[H]
+         \input{Problem_3/R2nR}
+         \caption{Mạch DAC R/2nR 4 Bit ở trạng thái 0010.}
+         \label{fig:61}
+    \end{figure}
+   % Mạch chuyển đổi tín hiệu điện tử sang tín hiệu tương tự (DAC) là mạch chuyển đổi dãy các giá trị nhị phân (0100, 1000) thành giá trị tương tự. Xét trong trường hợp này, mạch 4 bit nghĩa là đang chuyển đổi giá trị từ dãy 4 giá trị nhị phân, với quy ước khi khóa $K_n$ nào đó mở (Nối đến đầu dương của OPAMP) là có giá trị nhị phân là 0 còn khi đóng (Nối đến đầu âm của OPAMP) là có giá trị 1. Để thể hiện thứ tự và mức độ quan trọng của giá trị nhị phân trong dãy, các điện trở được xếp theo thứ tự từ phải sang trái và tăng dần theo cấp số nhân cũng như về mức độ quan trọng. (Ở điện trở $2^0 R$ tương ứng với giá trị nhị phân $b_0$ thì $b_0$ là giá trị nhị phân quan trọng nhất và tương tự thì $b_3$ là giá trị nhị phân kém quan trọng nhất, tương ứng với điện trở %2^3 R$.
+
+   Trong phần này, ta sẽ xét một mạch thể hiện được $4$ bit thông tin (hay $4$ giá trị nhị phân) như hình (\ref{fig:61}). Quy ước về các giá trị nhị phân là: khi khoá $K_n$ mở thì tương đương với giá trị nhị phân $0$; khi khoá $K_n$ đóng thì tương đương giá trị nhị phân $1$. Với $n$ tương ứng với số mũ của điện trở ($2^n R$) mà khoá $K$ mắc nối tiếp. Các trạng thái này được biểu diễn qua các giá trị $b_n$ được ghi trên hình.
+
+   Khi thể hiện dãy thông tin $4$ bit, ta sẽ ghi nhận trạng thái của các khoá $K$. Với thứ tự lần lượt từ trái sang phải là từ $n=0$ đến $n=3$.
+   
+    Cho các giá trị $V_{in}$, $R$ và $R_f$ coi như đã biết. Hãy tính giá trị của điện thế $V_{out}$ dựa theo các giá trị trên và tương ứng với các tín hiệu nhị phân 4 bit trong bảng \ref{Bảng chuyển đổi tín hiệu(Đề bài)}. Để có một bảng giá trị đẹp mắt, ta chọn đơn vị của $V_{out}$ là $\left( -\frac{R_f}{8R}V_{in}\right)$.
+    \begin{table}[ht]
+    \hspace{0.15\textwidth}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    Tín hiệu số & 0000 & 0001 & 0010 & 0011 & 0100 & 0101 & 0110 & 0111 \\ \hline
+    $V_{out} $  &      &      &      &      &      &      &      &      \\ \hline
+    
+    \end{tabular}
+    \end{table}
+
+    \begin{table}[ht]
+    \hspace{0.15\textwidth}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    Tín hiệu số & 1000 & 1001 & 1010 & 1011 & 1100 & 1101 & 1110 & 1111 \\ \hline
+    $V_{out} $  &      &      &      &      &      &      &      &      \\ \hline
+
+    \end{tabular}
+    \caption{}
+    \label{Bảng chuyển đổi tín hiệu(Đề bài)}
+    \end{table}
+    \item \textbf{Mạch DAC R-2R (Ladder DAC)}
+    
+    Có thể nhận thấy, nhược điểm lớn nhất của mạch DAC dạng R/2nR là việc sử dụng quá nhiều điện trở chính xác để thực hiện quá trình chuyển đổi và khi mà các số bit đầu vào tăng lên thì giá trị điện trở sẽ tăng lên theo cấp số nhân. Vì vậy, một biến thể được sử dụng rộng rãi hơn là dạng R-2R vốn chỉ sử dụng tới 2 loại điện trở. Mạch điện ấy có dạng như sau:
+    \begin{figure}[H]
+        \input{Problem_3/R-2R}
+        \caption{Mạch DAC R-2R 4 Bit ở trạng thái 0010}
+        \label{fig:64}
+    \end{figure} 
+    \begin{figure}[H]
+        \centering
+        \input{Problem_3/R-2R (Equivalent)}
+        \caption{Hệ tương đương của mạch R-2R}
+        \label{fig:65}
+    \end{figure}
+%Hãy đi khảo sát giá trị của $V_{out}$ tại những trạng thái $0001$, $0010$, $0100$ và $1000$. Từ đấy, sử dụng nguyên lý chồng chập để tìm ra quy luật chung của $V_{out}$ dựa theo các trạng thái của khoá $K$. Nguyên lý chồng chập có thể hiểu là: "trong một mạch điện tuyến tính có nhiều nguồn độc lập, tổng ảnh hưởng của các nguồn sẽ bằng tổng đại số các ảnh hưởng của từng nguồn". 
+
+Hệ mạch điện nằm trong khung sẽ tương đương với một điện thế $V_{R-2R}$ và một điện trở $R_0$ như hình (\ref{fig:65}). Các giá trị điện thế và điện trở có thể bị thay đổi bởi trạng thái của khoá $K$.
+\begin{enumerate}
+    \item[1.] Khi mạch điện ở trạng thái $0000$, tìm $V_{R-2R}$ và $R_0$.
+    \item[2.] Khi mạch điện ở trạng thái $0001$ và $1000$, tìm $V_{R-2R}$ và $R_0$. 
+    \item[3.] Sử dụng tính tương tự để tính $V_{R-2R}$ và $R_0$ cho mạch ở trạng thái $0100$ và $0010$.
+    \item[4.] Sử dụng nguyên lý chồng chập để đưa ra quy luật chung cho điện thế $V_{out}$ theo các giá trị $b_n, R, R_f$ và $V_{in}$. Nguyên lý chồng chập phát biểu: "\textit{Ảnh hưởng do các nguồn độc lập gây ra, bằng tổng ảnh hưởng của từng nguồn gây ra}".
+\end{enumerate}
+%Các dây nối đất là những dây nối vào một nguồn có điện thế bằng $0$. Vì thế, ta có thể coi như có dây dẫn giữa các đầu nối đất trong mạch.  
+
+Gợi ý: Sử dụng định lý Thevenin.
+\end{enumerate}
+\end{center}
+\begin{flushright}
+   \normalcolor(Biên soạn bởi Mino và trees\&streetslights.inc)
+\end{flushright}

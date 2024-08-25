@@ -1,0 +1,78 @@
+\textbf{a,} Có 3 lực tác dụng lên thanh đều theo phương thẳng đứng gồm:
+\begin{itemize}
+    \item Trọng lực $P$ với điểm đặt đi qua khối tâm của thanh (cũng là trung điểm của thanh).
+    \item Lực đẩy Archimedes $F_A = \gamma P \left( 1 - \dfrac{h}{L \cos \alpha} \right) $, điểm đặt đi qua trung điểm của đoạn thanh chìm trong nước. 
+    \item Lực giữ $T$ có độ lớn sao cho thanh cân bằng và đi qua đầu trên của thanh.
+\end{itemize}
+
+Để thanh không bị quay, các moment lực phải cân bằng với nhau tại mọi tâm quay. Ở đây ta chọn tâm quay là đầu trên của thanh để tránh các tính toán phức tạp liên quan đến moment lực của lực kéo $T$, khi đó, độ dài cánh tay đòn của trọng lực
+\begin{equation}
+    d_1 = \dfrac{L}{2} \sin \alpha \nonumber
+\end{equation}
+và độ dài cánh tay đòn của lực đẩy Archimedes:
+\begin{equation}
+    d_2 = \left[ L - \dfrac{1}{2} \left( L - \dfrac{h}{\cos \alpha} \right) \right] \sin \alpha. \nonumber
+\end{equation}
+Từ đó, ta có phương trình cân bằng moment lực
+\begin{equation}
+    P d_1 = F_A d_2 \Rightarrow P \dfrac{L}{2} \sin \alpha = \gamma P \left( 1 - \dfrac{h}{L \cos \alpha} \right) \left[ L - \dfrac{1}{2} \left( L - \dfrac{h}{\cos \alpha} \right) \right] \sin \alpha. \nonumber
+\end{equation}
+Phương trình trên có 2 nghiệm:
+\begin{equation}
+    \cos \alpha = \pm \dfrac{h}{L} \left( 1 - \dfrac{1}{\gamma} \right)^{-1/2}. \nonumber
+\end{equation}
+Nghiệm $\cos \alpha < 0$ ứng với trường hợp lực kéo $T$ của chúng ta kéo một đầu thanh xuống phía dưới và đầu đó ngập trong nước. Song, nó không phải trường hợp ta đang khảo sát và ta có thể bỏ qua. Viết lại nghiệm ta cần tìm theo cách khác, ta được
+\begin{equation}
+    \alpha = \arccos{ \left[ \dfrac{h}{L} \left( 1 - \dfrac{1}{\gamma} \right)^{-1/2} \right] }. \nonumber
+\end{equation}
+Ban đầu, $\alpha=\alpha_0$. Để $0^\circ < \alpha_0 < 90^\circ$, $h$ sẽ phải thỏa mãn:
+\begin{equation}
+    0 < h < L \left( 1 - \dfrac{1}{\gamma} \right)^{1/2}. \nonumber
+\end{equation}
+
+\textbf{b,} Cân bằng các lực trên thanh theo phương thẳng đứng, ta xác định được lực căng dây $T$:
+    \begin{equation}
+        T = P - F_A \nonumber
+    \end{equation}
+
+Quá trình kéo thanh ra khỏi mặt nước có thể được chia làm 2 giai đoạn:
+\begin{itemize}
+    \item Giai đoạn 1: Thanh quay từ khi thanh hợp với phương thẳng đứng góc $\alpha_0$ tới khi thanh nằm thẳng đứng. \\
+    Áp dụng kết quả phần \textbf{a,} ta tìm được lực căng dây $T$ không đổi và có độ lớn:
+    \begin{equation}
+        T_1 = P \left[ 1 - \gamma \left( 1 - \dfrac{1}{\gamma} \right)^{1/2} \right]. \nonumber
+    \end{equation} 
+    Đầu trên của thanh sẽ đi được một quãng đường:
+    \begin{equation}
+        s_1 = L \left( 1 - \dfrac{1}{\gamma} \right)^{1/2} \left( 1 - \cos \alpha_0\right). \nonumber
+    \end{equation}
+    Do đó, công sinh ra trong quá trình này là:
+    \begin{equation}
+        A_1 = T_1 s_1 = P L \left[ 1 - \gamma \left( 1 - \dfrac{1}{\gamma} \right)^{1/2} \right] \left( 1 - \dfrac{1}{\gamma} \right)^{1/2} \left( 1 - \cos \alpha_0 \right). \nonumber
+    \end{equation}
+    \item Giai đoạn 2: Từ khi thanh bắt đầu nằm thẳng đứng tới khi thanh rời khỏi nước.
+    Ở giai đoạn này, lực đẩy Archimedes giảm tuyến tính theo quãng đường mà đầu thanh di chuyển được, khiến lực kéo $T$ tăng dần đều đến khi $T=P$. Lực kéo trung bình sẽ là:
+    \begin{equation}
+        \overline{T} = \dfrac{T_1+P}{2} = P \left[ 1 - \dfrac{1}{2} \gamma \left( 1 - \dfrac{1}{\gamma} \right)^{1/2} \right]. \nonumber
+    \end{equation}
+    Quãng đường thanh và đầu trên của thanh di chuyển trong giai đoạn này:
+    \begin{equation}
+        s_2 = L \left[ 1 - \left( 1 - \dfrac{1}{\gamma} \right)^{1/2} \right] \nonumber
+    \end{equation}
+    Công sinh ra trong quá trình 2 là:
+    \begin{equation}
+        A_2 = \overline{T} s_2 = P L \left[ 1 - \dfrac{1}{2} \gamma \left( 1 - \dfrac{1}{\gamma} \right)^{1/2} \right] \left[ 1 - \left( 1 - \dfrac{1}{\gamma} \right)^{1/2} \right]. \nonumber
+    \end{equation}
+\end{itemize}
+Tổng công sinh ra từ khi thanh nằm hợp với phương thẳng đứng một góc $\alpha$ tới khi thanh bị kéo khỏi mặt nước:
+\begin{equation}
+\begin{split}
+    A &= A_1 + A_2 \\
+    &= P L \left\{ \dfrac{1}{2} \left[ 3 - \gamma - \gamma \left( 1 - \dfrac{1}{\gamma} \right)^{1/2} \right] -\left[ 1 - \gamma + \left( 1 - \dfrac{1}{\gamma} \right)^{1/2} \right] \cos \alpha_0 \right\}.
+    \nonumber
+\end{split}
+\end{equation}
+
+\ \  
+
+\textit{Dành cho các bạn muốn tìm hiểu sâu thêm, tồn tại một cách làm khác ngắn hơn rất nhiều (mà vẫn cho ra kết quả tương tự) nhưng yêu cầu sử dụng kiến thức ở bậc THPT về thế năng trọng trường, đó là công tối thiểu $A$ để kéo thanh ra có thể được xác định từ chênh lệch thế năng của hệ thanh mảnh và chất lỏng giữa trạng thái ban đầu và trạng thái cuối cùng. Hy vọng sau khi đã vào cấp III, các bạn sẽ dành chút thời gian để tự giải lại bài tập theo hướng này.}
