@@ -1,0 +1,135 @@
+\begin{enumerate}[label=(\alph*)]
+\item Trong một biểu diễn hai chiều, một mặt phẳng vật thể nghiêng so với mặt phẳng thấu kính là một đường thẳng được mô tả bởi
+\begin{equation}
+y_u = au + b.    
+\end{equation}
+Theo quy ước quang học, cả khoảng cách vật thể và khoảng cách ảnh đều dương cho ảnh thực, do đó trong hình vẽ, khoảng cách vật thể $ u $ tăng về phía trái của mặt phẳng thấu kính LP; trục đứng sử dụng quy ước Cartesian thông thường, với các giá trị phía trên trục quang học là dương và phía dưới trục quang học là âm.
+Mối quan hệ giữa khoảng cách vật thể $ u $, khoảng cách ảnh $ v $, và tiêu cự thấu kính $ f $ được đưa ra bởi phương trình thấu kính mỏng
+\begin{equation}
+\dfrac{1}{u} + \dfrac{1}{v} = \dfrac{1}{f}.
+\end{equation}
+Giải cho $ u $ ta được
+\begin{equation}
+u = \dfrac{vf}{v - f},
+\end{equation}
+sao cho
+\begin{equation}
+\label{eq:S2_01}
+y_u = a \frac{vf}{v-f} + b.
+\end{equation}
+
+Độ phóng đại $ m $ là tỷ lệ của chiều cao ảnh $ y_v $ so với chiều cao vật thể $ y_u $:
+\begin{equation}
+m = \dfrac{y_v}{y_u}.
+\end{equation}
+$ y_u $ và $ y_v $ có dấu ngược nhau, do đó độ phóng đại là âm, chỉ ra một ảnh ngược. Từ các tam giác tương tự trong Hình 6, độ phóng đại cũng liên quan khoảng cách ảnh và khoảng cách vật thể, do đó
+\begin{equation}
+m = -\dfrac{v}{u} = -\dfrac{v-f}{f}.
+\end{equation}
+
+Trên phía ảnh của thấu kính,
+\begin{equation}
+y_v = my_u
+= \dfrac{v-f}{f}\left(a \dfrac{vf}{v-f} + b\right)
+= -\left(av + \dfrac{v}{f}b - b\right),
+\end{equation}
+cho ra
+\begin{equation}
+\label{eq:S2_02}  
+y_v = -\left(a + \dfrac{b}{f}\right)v + b.
+\end{equation}
+
+Tâm của tiêu điểm cho mặt phẳng vật thể nghiêng là một mặt phẳng; trong biểu diễn hai chiều, giao điểm $ y $ là giống như đối với đường thẳng mô tả mặt phẳng vật thể, do đó mặt phẳng vật thể, mặt phẳng thấu kính, và mặt phẳng ảnh có một giao điểm chung.
+
+\item Từ Hình vẽ,
+\begin{equation}
+\tan \psi = \dfrac{u'}{J}.
+\end{equation}
+kết hợp với kết quả trước đó cho phía vật thể và loại bỏ $\psi$ ta có
+\begin{equation}
+\sin \theta = \dfrac{f}{J}.
+\end{equation}
+
+Lại từ Hình vẽ,
+\begin{equation}
+\label{eq:S2_03}
+\sin \theta = \frac{d}{J},
+\end{equation}
+do đó khoảng cách $d$ là tiêu cự của thấu kính $f$, và điểm $G$ nằm tại giao điểm của mặt phẳng tiêu điểm trước của thấu kính với một đường song song với mặt phẳng ảnh. Khoảng cách $J$ chỉ phụ thuộc vào độ nghiêng của thấu kính và tiêu cự của thấu kính; đặc biệt, nó không bị ảnh hưởng bởi các thay đổi trong tiêu điểm.
+\\Từ Hình vẽ,
+\begin{equation}
+\label{eq:S2_04}
+\tan \theta = \dfrac{v'}{S},
+\end{equation}
+do đó khoảng cách đến giao điểm Scheimpflug tại $S$ thay đổi khi tiêu điểm thay đổi. Vì vậy, mặt phẳng tiêu cự (PoF) quay quanh trục tại $G$ khi tiêu điểm được điều chỉnh.
+
+\item Xét tam giác đồng dạng $\Delta PO_mM$ và $\Delta PQN$, ta thu được tỉ lệ sau: \\
+\begin{equation}
+PN=\dfrac{l_0}{l_0'} PM.
+\end{equation}
+\begin{equation}
+\Longrightarrow PN=\dfrac{(l+QN)PM}{l'+QM}
+\end{equation}
+\begin{equation}
+\Longrightarrow  h\sin(90^o-\beta)=\dfrac{(l+h\cos{(90^o-\beta))x\sin{(90^o-\alpha)}}}{l'+x\cos{(90^o-\alpha)}}.
+\end{equation}
+\begin{equation}
+\Longrightarrow h(l'+x\cos{(90^o-\alpha)})\sin(90^o-\beta)=(l+h\cos{(90^o-\beta))x\sin{(90^o-\alpha)}}.
+\end{equation}
+\begin{equation}
+\boxed{
+\Longrightarrow h=\dfrac{lx\sin{(90^o-\alpha)}}{l'\sin{(90^o-\beta)}+x\sin{(\alpha-\beta)}}.
+}
+\end{equation}
+\item Tọa độ P là giao điểm của đường thẳng đi qua P và P" và mặt phẳng màn. Phương trình tham số của đường thẳng cho phép ta quy cả ba tọa độ $x, y, z$ theo cùng 1 biến $t$ để thay vào phương trình mặt phẳng cho trước và giải ra $t$ rồi thay ngược lại vào biểu thức các tọa độ theo t. \\
+Từ công thức của phương trình tham số đã cho, ta chọn điểm A là điểm P" $(x^{"}_c; y^{"}_c; z^{"}_c)$ và điểm B là $O_c$ $(0; 0; 0)$. Có: 
+\begin{equation}
+   \begin{cases}
+x = (x^{"}_C-0)t + x^{"}_C. \\
+y = (y^{"}_C-0)t + y^{"}_C .\\
+z = (z^{"}_C-0)t + z^{"}_C.
+    \end{cases} 
+\end{equation}
+Thay vào phương trình mô tả mặt phẳng màn, có:
+\begin{equation}
+A_c[(x^{"}_C-0)t + x^{"}_C]+B_c[(y^{"}_C-0)t + y^{"}_C]+C_c[(z^{"}_C-0)t + z^{"}_C]+D_1=0.
+\end{equation}
+\begin{equation}
+\Longrightarrow
+t=-\dfrac{A_cx^{"}_C+B_cy^{"}_C+C_cz^{"}_C+D_1}{A_cx^{"}_C+B_cy^{"}_C+C_cz^{"}_C}
+\end{equation}
+Thay t vào phương trình tham số, ta thu được tọa độ của điểm P trong hệ tọa độ $O_cX_cY_cZ_c$ gắn với camera:
+
+\begin{equation}
+\boxed{
+\left(x_c;y_c;z_c\right)=\left(\dfrac{-D_1x_c^{"}}{A_cx_c^{"}+By_c^{"}+C} ; \dfrac{-D_1y_c^{"}}{A_cx_c^{"}+By_c^{"}+C} ; \dfrac{-D_1}{A_cx_c^{"}+By_c^{"}+C}\right)
+}
+\end{equation}
+
+
+%%%%%%%%%%%%PHỔ ĐIỂM%%%%%%%%%%%%%%
+\textbf{Phổ điểm}
+    \begin{center}
+    \begin{tabular}{|c|p{8cm}|c|}
+    \hline
+    \multicolumn{1}{|l|}{Phần} & Nội dung & Điểm thành phần \\ 
+    \hline
+\multirow{2}{*}{(a)} &  Giải được phương trình \eqref{eq:S2_01}                                                                                 & 0.5             \\ \cline{2-3}
+                     & Giải được phương trình \eqref{eq:S2_02}
+                     & 0.5             \\ \hline
+\multirow{3}{*}{(b)} & Ra được biểu thức \eqref{eq:S2_03}                               
+                     & 0.25            \\ \cline{2-3}
+                     & Biện luận về khoảng cách J                        
+                     & 0.25            \\ \cline{2-3}
+                     & Ra được biểu thức \eqref{eq:S2_04}               
+                     & 0.5             \\ \hline
+\multirow{2}{*}{(c)} & Viết được phương trình lên hệ PN và PM                                                       & 0.25            \\ \cline{2-3}
+                     & Biểu diễn được h theo những biến đã cho
+                     & 0.25     \\ \hline
+\multirow{2}{*}{(d)} & Viết được phương trình tham số của các tọa độ
+& 0.5          \\ \cline{2-3}
+                     &Thu được tọa độ của điểm P trong hệ tọa độ gắn với camera 
+                     & 0.25     \\ \hline
+    \end{tabular}
+    \end{center}
+\end{enumerate}

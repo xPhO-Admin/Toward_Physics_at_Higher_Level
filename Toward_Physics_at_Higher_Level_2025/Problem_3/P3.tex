@@ -1,0 +1,105 @@
+Graphite là một dạng carbon có cấu trúc lớp, trong đó các lớp carbon liên kết với nhau bằng liên kết cộng hóa trị, tạo ra tính dẫn điện tốt. Do đó, graphite được sử dụng trong nhiều ứng dụng điện tử và công nghiệp. Trong bài tập này, mục tiêu sẽ là đo điện trở của graphite để nghiên cứu sự thay đổi của điện trở theo các yếu tố như kích thước, nhiệt độ vật liệu.\\
+Ta sẽ khảo sát sự phụ thuộc của điện trở của graphite $R_g$ vào nhiệt độ của nó. Sự phụ thuộc này có thể được xấp xỉ là tuyến tính theo biểu thức sau:
+\begin{equation}
+    R_g=R_0(1+\alpha \Delta T).
+\end{equation}
+Với $\Delta T$ là chênh lệch nhiệt độ giữa phòng và graphite, $R_0$ là điện trở graphite ở nhiệt độ phòng, $\alpha$ là một hằng số.
+Ngoài ra, giả sử rằng công suất truyền nhiệt ra môi trường tỉ lệ thuận với chênh lệch nhiệt độ giữa môi trường và thanh được cho bằng biểu thức:
+$P=\beta \Delta T $ ($\beta$ là một hằng số). \\
+Mạch được sử dụng cho thí nghiệm cho như hình bên dưới: 
+\begin{figure}[h]
+\ctikzset{resistor = european}
+\centering
+\begin{circuitikz}
+\draw (0,0) to[battery] (0,3);
+
+\draw (0,3) -- (1.5,3);
+\draw (1.5,3) -- (2,3); 
+\draw (2,3) to[R=$R_g$] (4,3)
+           to[R=$R_0$] (6,3);
+
+\draw (6,3) -- (6.5,3);
+
+\draw (4,3) to[rmeter, t=V] (4,4.8);
+\draw (4,4.8) node[ocirc]{};
+
+\draw (6.5,3) -- (8,3) to[vR=$R$] (8,0) -- (0,0);
+
+\draw (1.5,3) |- (3.8,5);
+\draw (3.8,5) node[ocirc]{};
+\draw (3.6,5.2) node{1}; 
+
+\draw (6.5,3) |- (4.2,5);
+\draw (4.2,5) node[ocirc]{};
+\draw (4.4,5.2) node{2}; 
+\end{circuitikz}
+\caption{Mạch điện đo điện trở $R_g$}
+\end{figure}
+Dụng cụ và thiết bị được sử dụng: thanh graphite, đồng hồ đo điện, nguồn điện (pin 4.5 V), điện trở cố định 1.0 $\Omega$ và 10 $\Omega$ (kí hiệu là $R_0)$, biến trở $R$, dây nối, đồng hồ bấm giờ, bình chứa tuyết.
+\begin{enumerate}[label=(\alph*)]
+\item Từ hình vẽ bố trí thí nghiệm và dụng cụ thí nghiệm, giải thích cách đo.
+\newpage 
+\item Cho bảng số liệu như sau: 
+\begin{figure}[H]
+{\large
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{U (V)} & \textbf{I (A)} & \textbf{P (W)} & \textbf{R ($\Omega$)} \\
+\hline
+0.150 & 0.040 & 0.0060 & 3.750 \\
+0.188 & 0.050 & 0.0094 & 3.760 \\
+0.202 & 0.054 & 0.0109 & 3.741 \\
+0.261 & 0.070 & 0.0183 & 3.729 \\
+0.304 & 0.081 & 0.0246 & 3.753 \\
+0.411 & 0.109 & 0.0448 & 3.771 \\
+0.470 & 0.124 & 0.0583 & 3.790 \\
+0.742 & 0.199 & 0.1477 & 3.729 \\
+0.907 & 0.243 & 0.2204 & 3.733 \\
+1.155 & 0.312 & 0.3604 & 3.702 \\
+1.486 & 0.406 & 0.6033 & 3.660 \\
+1.570 & 0.430 & 0.6751 & 3.651 \\
+2.280 & 0.640 & 1.4592 & 3.563 \\
+\hline
+\end{tabular}
+}
+    \centering
+    \caption{}
+\end{figure}
+Vẽ đồ thị đặc tuyến U-I của graphite.
+\item Từ lý thuyết, rút ra phương trình mô tả xấp xỉ đặc tuyến U-I ở đồ thị trên, biết rằng với $\alpha$ nhỏ ta có thể xấp xỉ nhỏ như sau: \begin{equation}
+    \dfrac{1}{1+k\alpha} \approx (1-k\alpha).
+\end{equation}
+Với nghiệm của phương trình bậc 2 thu được trong quá trình tính toán, hãy lấy nghiệm nhỏ hơn.
+\item Tính điện trở suất của graphite, biết rằng đường kính của sợi graphite sử dụng là $d=1 mm$ và chiều dài là $l= 5cm$.
+\item Từ lý thuyết, chứng minh rằng điện trở graphite phụ thuộc vào công suất tỏa nhiệt theo biểu thức:
+
+\begin{equation}
+    R_g=R_0(1+\gamma P).
+\end{equation}
+\newpage
+\item Từ số liệu đã cho, tìm $\gamma$.
+\item Nếu đặt sợi dây graphite trên vào tuyết, ta thu được số liệu như sau:
+\begin{figure}[H]
+\large{
+\begin{tabular}{|c|c|}
+\hline
+\textbf{U (V)} & \textbf{I (A)} \\
+\hline
+0.144 & 0.037 \\
+0.177 & 0.045 \\
+0.248 & 0.064 \\
+0.292 & 0.076 \\
+0.354 & 0.091 \\
+0.504 & 0.130 \\
+0.721 & 0.188 \\
+0.895 & 0.232 \\
+1.205 & 0.312 \\
+1.554 & 0.409 \\
+\hline
+\end{tabular}
+}
+    \centering
+    \caption{}
+\end{figure}
+Từ số liệu đã cho, tính $\alpha$.
+\end{enumerate}
