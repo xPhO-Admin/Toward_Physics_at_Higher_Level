@@ -1,0 +1,36 @@
+\begin{figure}[ht!]
+\centering
+    \begin{tikzpicture}[scale=1.3]
+        % Định nghĩa tọa độ các điểm
+        \coordinate (M) at (0,0);
+        \coordinate (A) at (-3,4);
+        \coordinate (B) at (0,5);
+        \coordinate (C) at (4,3);
+
+        % Tâm và bán kính của Đường tròn 1 và 2
+        \coordinate (O1) at (-0.8333, 2.5);
+        \def\Rone{2.635} 
+        \coordinate (O2) at (1.25, 2.5);
+        \def\Rtwo{2.795}
+
+        % Vẽ 2 đường tròn quỹ tích
+        \draw[color=blue, thick, dashed] (O1) circle (\Rone);
+        \draw[color=red, thick, dashed] (O2) circle (\Rtwo);
+
+        % Dây cung chung (Đường thẳng đi qua B và M)
+        \draw[thick, purple] (0, -1.5) -- (0, 6) node[right] {\textit{Đường thẳng qua B và M}};
+
+        % Vẽ các tia nhìn
+        \draw[thick] (M) -- (A);
+        \draw[thick] (M) -- (C);
+        \draw[thick, gray, dotted] (A) -- (B) -- (C);
+
+        % Đánh dấu các Drone và M
+        \fill[orange] (A) circle (2.5pt) node[above left, text=black] {$A(x_1, y_1)$};
+        \fill[orange] (B) circle (2.5pt) node[above left, text=black] {$B(x_2, y_2)$};
+        \fill[orange] (C) circle (2.5pt) node[above right, text=black] {$C(x_3, y_3)$};
+        \fill[black] (M) circle (3pt) node[below left=0.1cm] {\textbf{Máy ảnh $M(x_M, y_M)$}};
+        
+    \end{tikzpicture}
+\caption{Đường thẳng đi qua giao điểm B và M của hai quỹ tích đường tròn.}
+\end{figure}

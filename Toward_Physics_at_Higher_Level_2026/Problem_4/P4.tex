@@ -1,0 +1,22 @@
+
+Trong mảng thị giác máy tính (computer vision), sự tạo ảnh trong máy ảnh được biểu thị qua mô hình toán học máy ảnh lỗ châm kim (Pinhole camera model). Khi máy ảnh được đặt rất xa so với vật thể, mô hình này được giải thích bởi tính chất quang học cơ bản của thấu kính: Mọi tia sáng đi qua quang tâm đều truyền thẳng, không bị khúc xạ. Mô hình lỗ châm kim thực chất là cách Toán học hóa nhằm loại bỏ sự phức tạp của các tia khúc xạ ở rìa thấu kính, chỉ giữ lại duy nhất chùm tia sáng truyền thẳng đi qua Quang tâm này để tính toán góc nhìn.
+
+Xét một hệ quy chiếu gắn với mặt đất phẳng, ba thiết bị bay không người lái (drone) được đặt cố định với tọa độ đã biết là $A\left( x_1, y_1 \right)$, $B\left( x_2, y_2 \right)$ và $C\left( x_3, y_3 \right)$. 
+
+Một thiết bị trinh sát mang hệ thống quang học (camera) đặt tại vị trí $M\left( x, y \right)$ trên cùng mặt phẳng tiến hành thu nhận hình ảnh của ba trạm này. Giả thiết trục của hệ thấu kính hướng trực diện vào trạm $B$. Trên mặt phẳng cảm biến (sensor), hình chiếu của ba trạm tạo thành ba điểm ảnh thẳng hàng. Khoảng cách đo được trên cảm biến giữa điểm ảnh của $A$ và $B$ là $d_1$; giữa điểm ảnh của $B$ và $C$ là $d_2$. Tiêu cự hiệu dụng của ống kính (khoảng cách từ quang tâm đến cảm biến) là $f$. 
+
+Gọi $M$ là quang tâm của hệ thấu kính và $H$ là hình chiếu vuông góc của $M$ lên mặt phẳng cảm biến. Do trục thấu kính hướng trực diện vào $B$, tia sáng từ $B$ đi qua quang tâm sẽ truyền thẳng và cắt cảm biến tại $H$. Khi đó, đoạn $MH = f$.
+
+Gọi $A'$ và $C'$ lần lượt là điểm ảnh của $A$ và $C$ trên cảm biến. Theo giả thiết, ta có $HA' = d_1$ và $HC' = d_2$.
+
+Mô hình máy ảnh lỗ châm kim mô tả quá trình tạo ảnh trong bài toán này như sau:
+
+\begin{figure}[!ht]
+\centering
+\input{Problem_4/Image/P4_tikz1.tex}
+\caption{Mô hình hình học tương đương của quá trình tạo ảnh trên cảm biến camera.}
+\end{figure}
+
+Hãy thiết lập phương án tính toán cụ thể để xác định tọa độ vị trí $M\left( x, y \right)$ của thiết bị trinh sát trên bản đồ thực tế.
+
+\underline{\textbf{Gợi ý:}} Thiết lập phương trình quỹ tích trên mặt đất. Biết phương trình của đường tròn tâm $I(a.b)$, bán kính R là $(x-a)^2+(y-b)^2=R^2$

@@ -1,0 +1,31 @@
+ \begin{tikzpicture}[font=\sansmath\sffamily, scale=1.2]
+        % Quang tâm M
+        \coordinate (M) at (0,0);
+        
+        % Mặt phẳng cảm biến
+        \draw[thick] (-4,-3) -- (5,-3) node[below] {Mặt phẳng cảm biến};
+        
+        % Hình chiếu H và điểm ảnh A', C'
+        \coordinate (H) at (0,-3);
+        \coordinate (Aprime) at (-2.5,-3);
+        \coordinate (Cprime) at (3,-3);
+        
+        % Tia sáng
+        \draw[thick, blue] (M) -- (Aprime) node[midway, left] {};
+        \draw[thick, dashed] (M) -- (H) node[midway, right] {Tiêu cự $f$};
+        \draw[thick, red] (M) -- (Cprime) node[midway, right] {};
+        
+        % Chú thích kích thước d1, d2
+        \draw[<->, thick] (-2.5,-3.3) -- (0,-3.3) node[midway, below] {$d_1$};
+        \draw[<->, thick] (0,-3.3) -- (3,-3.3) node[midway, below] {$d_2$};
+        
+        % Vẽ góc alpha, beta
+        \pic [draw, fill=blue!15, angle radius=1.2cm, "$\alpha$"] {angle = Aprime--M--H};
+        \pic [draw, fill=red!15, angle radius=1.5cm, "$\beta$"] {angle = H--M--Cprime};
+        
+        % Đánh dấu điểm
+        \fill[black] (M) circle (2pt) node[above=0.2cm] {\textbf{Quang tâm $M$}};
+        \fill[black] (H) circle (2pt) node[above right] {$H \equiv B'$};
+        \fill[black] (Aprime) circle (2pt) node[above left] {$A'$};
+        \fill[black] (Cprime) circle (2pt) node[above right] {$C'$};
+    \end{tikzpicture}

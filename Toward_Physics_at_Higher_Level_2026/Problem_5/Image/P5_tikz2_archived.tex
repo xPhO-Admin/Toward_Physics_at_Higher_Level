@@ -1,0 +1,57 @@
+\tdplotsetmaincoords{70}{120}
+\begin{tikzpicture}[
+    font=\sffamily\fontencoding{T1}\selectfont,
+    tdplot_main_coords,
+    scale=1.45,
+    line join=round,
+    line cap=round,
+    leg/.style={line width=1.6pt, blue!70!black},
+    baseedge/.style={line width=1.2pt, red!75!black},
+    floorline/.style={black, dash pattern=on 2pt off 2pt},
+    foot/.style={fill=black},
+    jointball/.style={ball color=gray!25}
+]
+
+    % --- 1. THÔNG SỐ HÌNH HỌC ---
+    \def\L{3}
+    \def\angleTheta{28}
+
+    \pgfmathsetmacro{\R}{\L*sin(\angleTheta)}
+    \pgfmathsetmacro{\H}{\L*cos(\angleTheta)}
+
+    % Ba điểm tựa trên mặt sàn, cách nhau 120 độ
+    \coordinate (A) at ({\R*cos(90)},  {\R*sin(90)},  0);
+    \coordinate (B) at ({\R*cos(210)}, {\R*sin(210)}, 0);
+    \coordinate (C) at ({\R*cos(330)}, {\R*sin(330)}, 0);
+    \coordinate (S) at (0,0,\H);
+
+    % --- 2. VẼ MẶT SÀN ---
+    \fill[black!10, opacity=0.6] (-2.4,-2.2,0) -- (2.4,-2.2,0) -- (2.4,2.2,0) -- (-2.4,2.2,0) -- cycle;
+    \draw[floorline] (-2.2,0,0) -- (2.2,0,0);
+    \draw[floorline] (0,-2.0,0) -- (0,2.0,0);
+
+    % --- 3. VẼ CẤU TRÚC KIỀNG BA CHÂN ---
+    \foreach \P in {A,B,C}{
+        \draw[leg] (\P) -- (S);
+        \fill[foot] (\P) circle (0.04);
+    }
+    \draw[baseedge] (A) -- (B) -- (C) -- cycle;
+
+    % Khớp cầu tại đỉnh
+    \shade[jointball] (S) circle (0.14);
+    \draw[black!70] (S) circle (0.14);
+
+    % Trục tọa độ tham chiếu
+    \draw[->, black, thin] (0,0,0) -- (0,0,3) node[above, black] {z};
+
+    % Kí hiệu vuông góc giữa trục z và mặt sàn
+    \draw[black!70, thin]
+        (0.16,0,0) -- (0.16,0,0.16) -- (0,0,0.16);
+
+    % Chú thích
+    \node[below, black] at (0,0,0) {O};
+    \node[below] at (A) {A};
+    \node[black, xshift=3pt, yshift=-5pt] at (0,0,0) {B};
+    \node[below] at (C) {C};
+    \node[xshift=3pt, yshift=2pt] at (S) {S};
+\end{tikzpicture}

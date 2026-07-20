@@ -1,0 +1,13 @@
+\begin{tikzpicture}[font=\sansmath\sffamily, scale=1.3,>=Stealth]
+  \draw[->](-2.6,0)--(2.9,0)node[right]{$x$};\draw[->](0,-2.6)--(0,2.9)node[above]{$ct$};
+  \draw[gray,dashed,thick](-2.5,-2.5)--(2.5,2.5)node[right,black,font=\sansmath\sffamily\footnotesize]{$x{=}ct$};
+  \draw[gray,dashed,thick](2.5,-2.5)--(-2.5,2.5)node[left,black,font=\sansmath\sffamily\footnotesize]{$x{=}{-}ct$};
+  \foreach \l/\px/\py in {Tương lai/0/1.7,Quá khứ/0/-1.7,Spacelike/1.85/0.25,Spacelike/-1.85/0.25}
+    \node[font=\sansmath\sffamily\scriptsize,gray]at(\px,\py){\l};
+  \draw[->,blue,thick](0,0)--(2.2,1.1)node[right,blue,font=\sansmath\sffamily\footnotesize]{$x'$};
+  \draw[->,blue,thick](0,0)--(1.1,2.2)node[above,blue,font=\sansmath\sffamily\footnotesize]{$ct'$};
+  \draw[red,thick,domain=-1.3:1.3,samples=50]plot({sinh(\x)},{cosh(\x)})node[right,red,font=\sansmath\sffamily\scriptsize]{$s^2{=}1$};
+  \pgfmathsetmacro{\cv}{1/(0.75)^(1/2)}\pgfmathsetmacro{\sv}{0.5/(0.75)^(1/2)}
+  \fill[red](\sv,\cv)circle(1.8pt)node[right,red,font=\sansmath\sffamily\scriptsize]{$\mathcal{K}$};
+  \fill(0,0)circle(1.4pt)node[below left]{$O$};\fill(0,1)circle(1.4pt)node[right,font=\sansmath\sffamily\scriptsize]{$1$đv};
+\end{tikzpicture}

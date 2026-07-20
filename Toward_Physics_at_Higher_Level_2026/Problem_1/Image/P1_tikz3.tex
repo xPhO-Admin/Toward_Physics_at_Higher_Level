@@ -1,0 +1,27 @@
+\begin{figure}[htbp]
+\centering
+% 1D model on Ox axis only (ignore y, z directions)
+\definecolor{lightaccent}{HTML}{FF5858}
+\definecolor{caraccent}{HTML}{D33EFF}
+\begin{tikzpicture}[font=\sansmath\sffamily, x=0.48cm,y=0.98cm,>=Latex,line cap=round,line join=round]
+  \tikzset{
+    axis/.style={->,very thick,black},
+    tree/.style={circle,fill=blue!70!black,inner sep=2.1pt},
+    car/.style={rectangle,fill=caraccent,minimum width=8pt,minimum height=6pt},
+    helper/.style={thin,black!35}
+  }
+
+  \draw[axis] (0,0) -- (24,0) node[below right] {$x\,(\mathrm{m})$};
+  \fill (0,0) circle (2pt);
+  \node[below,text=black] at (0,0) {$O \equiv C$};
+  \coordinate (C0) at (0,0);
+  \draw[->,very thick,lightaccent] (C0.center) ++(0,0) -- ++(6,0)
+    node[above] {$\vec c$};
+  \draw[->,very thick,caraccent] (C0.center) ++(0,0) -- ++(3,0)
+    node[above] {$\vec v_C=0.5c$};
+  \draw[->,very thick,lightaccent] (C0.center) ++(0,0) -- ++(-6,0)
+    node[above] {$\vec c$};
+\end{tikzpicture}
+\caption{Hình minh họa}
+\label{P1_I3}
+\end{figure}

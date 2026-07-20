@@ -1,0 +1,53 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex,line cap=round,line join=round,font=\sansmath\sffamily]
+  \tikzset{
+    axis/.style={->,line width=1pt,black},
+    basegrid/.style={gray!55,line width=1pt,dash pattern=on 4pt off 3pt},
+    movinggrid/.style={magenta!28,line width=1pt,dash pattern=on 6pt off 3pt},
+    worldcar/.style={violet!90!black,line width=1pt},
+    worldball/.style={blue!90!black,line width=1pt}
+  }
+
+  \def\xmin{-2}
+  \def\xmax{6}
+  \def\ymax{5}
+
+  % background square grid
+  \draw[basegrid] (\xmin,0) grid (\xmax,\ymax);
+
+  % moving-frame oblique grid: all lines are parallel to the car worldline
+  % and clipped to stay strictly inside the square grid frame.
+  \begin{scope}
+    \clip (\xmin,0) rectangle (\xmax,\ymax);
+    % 2 lines on the left, 5 lines on the right of the main purple line
+    \foreach \x in {-1,0,1,2,3,4,5} {
+      \draw[movinggrid] (\x,0) -- (\x+5,5);
+    }
+    \foreach \y in {0,1,2,3,4} {
+      \draw[movinggrid] (\xmin,\y) -- (\xmin+5,\y+5);
+    }
+  \end{scope}
+
+  % axes
+  \draw[axis] (\xmin,0) -- (7,0) node[below right=2pt] {$x\equiv x'$};
+  \draw[axis] (0,0) -- (0,6) node[above left=1pt] {$t$};
+
+  % worldlines
+  \draw[worldcar] (0,0) -- (5,5);
+  \draw[axis] (5,5) -- (6,6) node[above right=1pt] {$t'$};
+  \draw[worldball] (1,0) -- (3,5);
+
+  % origin mark
+  \fill[red!85!black] (0,0) circle (2pt);
+  \node[below left=1pt,text=red!85!black] at (0,0) {$O$};
+
+  % distance annotation: one square = 10 m
+  \draw[gray!75,<->,line width=1pt] (0,-1) -- (1,-1);
+  \draw[gray!75,line width=1pt] (0,-1) -- (0,0);
+  \draw[gray!75,line width=1pt] (1,-1) -- (1,0);
+  \node[below=2pt,text=red!85!black] at (0.5,-1) {$10\,\mathrm{m}$};
+\end{tikzpicture}
+\caption{Minh họa sự chồng chập xét trong hệ quy chiếu cây}
+\label{P1_tikz2}
+\end{figure}

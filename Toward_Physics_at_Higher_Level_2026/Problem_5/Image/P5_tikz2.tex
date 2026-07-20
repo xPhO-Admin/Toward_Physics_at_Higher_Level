@@ -1,0 +1,141 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sansmath\sffamily,
+    scale=1.05,
+    line join=round,
+    line cap=round,
+    edge/.style={draw=black, line width=1.15pt},
+    hidden/.style={draw=black!45, dashed, line width=0.85pt},
+    link/.style={draw=black!70, line width=0.95pt, solid},
+    corefront/.style={fill=gray!20},
+    coretop/.style={fill=gray!35},
+    coreright/.style={fill=gray!10},
+    flatfill/.style={fill=gray!45},
+    flatedge/.style={draw=black, line width=1.25pt},
+    frontface/.style={draw=BrickRed, line width=1.3pt},
+    topface/.style={draw=ForestGreen!80!black, line width=1.3pt},
+    rightface/.style={draw=RoyalBlue, line width=1.3pt},
+    leftface/.style={draw=orange!90!black, line width=1.3pt},
+    bottomface/.style={draw=violet!85!black, line width=1.3pt},
+    backface/.style={draw=teal!70!black, dashed, line width=1.1pt},
+]
+    \begin{scope}[xshift=0.55cm, yshift=0cm, scale=0.78]
+        \coordinate (u) at (2.6,0); \coordinate (v) at (1.05,1.05); \coordinate (w) at (0,2.6);
+
+        \coordinate (A) at (0,0); \coordinate (B) at ($(A)+(u)$);
+        \coordinate (C) at ($(B)+(w)$); \coordinate (D) at ($(A)+(w)$);
+        \coordinate (E) at ($(A)+(v)$); \coordinate (F) at ($(B)+(v)$);
+        \coordinate (G) at ($(C)+(v)$); \coordinate (H) at ($(D)+(v)$);
+
+        \fill[corefront] (A) -- (B) -- (C) -- (D) -- cycle;
+        \fill[coretop] (D) -- (C) -- (G) -- (H) -- cycle;
+        \fill[coreright] (B) -- (C) -- (G) -- (F) -- cycle;
+        \draw[hidden] (A) -- (E) -- (F); \draw[hidden] (E) -- (H);
+        \draw[edge] (A) -- (B) -- (C) -- (D) -- cycle;
+        \draw[edge] (D) -- (H) -- (G) -- (C); \draw[edge] (B) -- (F) -- (G);
+
+        \pgfmathsetmacro{\s}{2/3} \pgfmathsetmacro{\m}{(1-\s)/2}
+        \pgfmathsetmacro{\ux}{2.6} \pgfmathsetmacro{\uy}{0}
+        \pgfmathsetmacro{\vx}{1.05} \pgfmathsetmacro{\vy}{1.05}
+        \pgfmathsetmacro{\wx}{0} \pgfmathsetmacro{\wy}{2.6}
+        \pgfmathsetmacro{\gap}{0.08} % Đã đổi \d thành \gap để tránh lỗi font tiếng Việt
+
+        % Front cube
+        \coordinate (FA) at ({\m*\ux + \m*\wx - \s*\vx - \gap*(\ux+\wx)},{\m*\uy + \m*\wy - \s*\vy - \gap*(\uy+\wy)});
+        \coordinate (FB) at ({(\m+\s)*\ux + \m*\wx - \s*\vx - \gap*(\ux+\wx)},{(\m+\s)*\uy + \m*\wy - \s*\vy - \gap*(\uy+\wy)});
+        \coordinate (FC) at ({(\m+\s)*\ux + (\m+\s)*\wx - \s*\vx - \gap*(\ux+\wx)},{(\m+\s)*\uy + (\m+\s)*\wy - \s*\vy - \gap*(\uy+\wy)});
+        \coordinate (FD) at ({\m*\ux + (\m+\s)*\wx - \s*\vx - \gap*(\ux+\wx)},{\m*\uy + (\m+\s)*\wy - \s*\vy - \gap*(\uy+\wy)});
+        \draw[frontface] (FA) -- (FB) -- (FC) -- (FD) -- cycle;
+        \draw[frontface] (A) -- (FA); \draw[frontface] (B) -- (FB); \draw[frontface] (C) -- (FC); \draw[frontface] (D) -- (FD);
+
+        % Top cube
+        \coordinate (TA) at ({\m*\ux + \m*\vx + \s*\wx},{\wy + \m*\uy + \m*\vy + \s*\wy});
+        \coordinate (TB) at ({(\m+\s)*\ux + \m*\vx + \s*\wx},{\wy + (\m+\s)*\uy + \m*\vy + \s*\wy});
+        \coordinate (TC) at ({(\m+\s)*\ux + (\m+\s)*\vx + \s*\wx},{\wy + (\m+\s)*\uy + (\m+\s)*\vy + \s*\wy});
+        \coordinate (TD) at ({\m*\ux + (\m+\s)*\vx + \s*\wx},{\wy + \m*\uy + (\m+\s)*\vy + \s*\wy});
+        \draw[topface] (TA) -- (TB) -- (TC) -- (TD) -- cycle;
+        \draw[topface] (D) -- (TA); \draw[topface] (C) -- (TB); \draw[topface] (G) -- (TC); \draw[topface] (H) -- (TD);
+
+        % Right cube
+        \coordinate (RA) at ({\ux + \m*\vx + \m*\wx + \s*\ux},{\m*\vy + \m*\wy + \s*\uy});
+        \coordinate (RB) at ({\ux + (\m+\s)*\vx + \m*\wx + \s*\ux},{(\m+\s)*\vy + \m*\wy + \s*\uy});
+        \coordinate (RC) at ({\ux + (\m+\s)*\vx + (\m+\s)*\wx + \s*\ux},{(\m+\s)*\vy + (\m+\s)*\wy + \s*\uy});
+        \coordinate (RD) at ({\ux + \m*\vx + (\m+\s)*\wx + \s*\ux},{\m*\vy + (\m+\s)*\wy + \s*\uy});
+        \draw[rightface] (RA) -- (RD) -- (RC) -- (RB) -- cycle;
+        \draw[rightface] (B) -- (RA); \draw[rightface] (C) -- (RD); \draw[rightface] (G) -- (RC); \draw[rightface] (F) -- (RB);
+
+        % Left cube
+        \coordinate (LA) at ({\m*\vx + \m*\wx - \s*\ux},{\m*\vy + \m*\wy - \s*\uy});
+        \coordinate (LB) at ({(\m+\s)*\vx + \m*\wx - \s*\ux},{(\m+\s)*\vy + \m*\wy - \s*\uy});
+        \coordinate (LC) at ({(\m+\s)*\vx + (\m+\s)*\wx - \s*\ux},{(\m+\s)*\vy + (\m+\s)*\wy - \s*\uy});
+        \coordinate (LD) at ({\m*\vx + (\m+\s)*\wx - \s*\ux},{\m*\vy + (\m+\s)*\wy - \s*\uy});
+        \draw[leftface] (LA) -- (LD) -- (LC) -- (LB) -- cycle;
+        \draw[leftface] (A) -- (LA); \draw[leftface] (D) -- (LD); \draw[leftface] (H) -- (LC); \draw[leftface] (E) -- (LB);
+
+        % Bottom cube
+        \coordinate (BA) at ({\m*\ux + \m*\vx - \s*\wx},{\m*\uy + \m*\vy - \s*\wy});
+        \coordinate (BB) at ({(\m+\s)*\ux + \m*\vx - \s*\wx},{(\m+\s)*\uy + \m*\vy - \s*\wy});
+        \coordinate (BC) at ({(\m+\s)*\ux + (\m+\s)*\vx - \s*\wx},{(\m+\s)*\uy + (\m+\s)*\vy - \s*\wy});
+        \coordinate (BD) at ({\m*\ux + (\m+\s)*\vx - \s*\wx},{\m*\uy + (\m+\s)*\vy - \s*\wy});
+        \draw[bottomface] (BA) -- (BB) -- (BC) -- (BD) -- cycle;
+        \draw[bottomface] (A) -- (BA); \draw[bottomface] (B) -- (BB); \draw[bottomface] (F) -- (BC); \draw[bottomface] (E) -- (BD);
+
+        % Back cube
+        \coordinate (KA) at ({\vx + \m*\ux + \m*\wx + \s*\vx + \gap*(\ux+\wx)},{\vy + \m*\uy + \m*\wy + \s*\vy + \gap*(\uy+\wy)});
+        \coordinate (KB) at ({\vx + (\m+\s)*\ux + \m*\wx + \s*\vx + \gap*(\ux+\wx)},{\vy + (\m+\s)*\uy + \m*\wy + \s*\vy + \gap*(\uy+\wy)});
+        \coordinate (KC) at ({\vx + (\m+\s)*\ux + (\m+\s)*\wx + \s*\vx + \gap*(\ux+\wx)},{\vy + (\m+\s)*\uy + (\m+\s)*\wy + \s*\vy + \gap*(\uy+\wy)});
+        \coordinate (KD) at ({\vx + \m*\ux + (\m+\s)*\wx + \s*\vx + \gap*(\ux+\wx)},{\vy + \m*\uy + (\m+\s)*\wy + \s*\vy + \gap*(\uy+\wy)});
+        \draw[backface] (KA) -- (KB) -- (KC) -- (KD) -- cycle;
+        \draw[backface] (F) -- (KB); \draw[backface] (G) -- (KC); \draw[backface] (H) -- (KD);
+
+        \node[font=\rmfamily\normalsize, below=4pt] at (1.6,-3.10) {(a) Góc nhìn tổng quát};
+
+        %================ Front View================
+        \begin{scope}[xshift=10.9cm, yshift=-1.25cm, scale=1.55]
+            \pgfmathsetmacro{\baseW}{2}
+            \pgfmathsetmacro{\baseD}{0.8}
+            \pgfmathsetmacro{\topW}{1.2}
+            \pgfmathsetmacro{\topD}{0.5}
+            \pgfmathsetmacro{\h}{1.9}
+
+            \coordinate (B1) at (0,0);
+            \coordinate (B2) at (\baseW,0);
+            \coordinate (B3) at (\baseW+\baseD/2, \baseD/2);
+            \coordinate (B4) at (\baseD/2, \baseD/2);
+
+            \pgfmathsetmacro{\offX}{(\baseW-\topW)/2}
+            \pgfmathsetmacro{\offY}{(\baseD-\topD)/2}
+
+            \coordinate (T1) at (\offX, \h);
+            \coordinate (T2) at (\offX+\topW, \h);
+            \coordinate (T3) at (\offX+\topW+\topD/2, \h+\topD/2);
+            \coordinate (T4) at (\offX+\topD/2, \h+\topD/2);
+
+            \filldraw[fill=gray!20, draw=black, thick, fill opacity=0.5] (B1) -- (B2) -- (B3) -- (B4) -- cycle;
+
+            \draw[draw=green!60!black, ultra thick, dashed, opacity=0.7] (B4) -- (T4);
+            \draw[draw=green!60!black, ultra thick] (B1) -- (T1);
+            \draw[draw=green!60!black, ultra thick] (B2) -- (T2);
+            \draw[draw=green!60!black, ultra thick] (B3) -- (T3);
+
+            \filldraw[fill=green!20, draw=green!60!black, thick, fill opacity=0.5] (T1) -- (T2) -- (T3) -- (T4) -- cycle;
+
+            \coordinate (BaseCenter) at (\offX + \topW/2 + \topD/4, \baseD/4);
+            \coordinate (TopCenter) at (\offX + \topW/2 + \topD/4, \h + \topD/4);
+
+            \draw[draw=RoyalBlue, dashed, thick] (BaseCenter) -- (TopCenter)
+                node[midway, left, RoyalBlue] {$h_0$};
+
+            \draw[RoyalBlue] (BaseCenter) ++(0.1,0) -- ++(0,0.1) -- ++(-0.1,0);
+            \draw[RoyalBlue] (TopCenter) ++(0.1,0) -- ++(0,-0.1) -- ++(-0.1,0);
+
+            \node[font=\rmfamily\small, text=RoyalBlue, above=2pt] at ($(B1)!0.5!(B2)$) {$L$};
+            \node[font=\rmfamily\small, text=RoyalBlue, right=3pt] at ($(B2)!0.5!(T2)$) {$b$};
+        \end{scope}
+
+        \node[font=\rmfamily\normalsize, below=4pt] at (12.45,-3.10) {(b) Góc nhìn trực diện};
+    \end{scope}
+\end{tikzpicture}
+\caption{Cấu trúc 3D}
+\label{P5_tikz2}
+\end{figure}

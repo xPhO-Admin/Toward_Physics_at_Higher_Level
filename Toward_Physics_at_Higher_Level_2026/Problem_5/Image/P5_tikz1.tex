@@ -1,0 +1,65 @@
+\definecolor{myred}{RGB}{192,57,43}
+\definecolor{myblue}{RGB}{41,128,185}
+\definecolor{mygreen}{RGB}{39,174,96}
+\definecolor{myorange}{RGB}{211,84,0}
+\definecolor{mypurple}{RGB}{142,68,173}
+\definecolor{myteal}{RGB}{22,160,133}
+\definecolor{mygray}{RGB}{220,220,220}
+\begin{figure}[ht]
+\centering
+   \begin{tikzpicture}[scale=0.75, thick, >=stealth, font=\sansmath\sffamily, every node/.style={font=\sansmath\sffamily}]
+        % --- HÌNH A ---
+        \begin{scope}[shift={(0,0)}]
+            \coordinate (A) at (0,0); \coordinate (B) at (4,0);
+            \coordinate (C) at (3.5,-2.5); \coordinate (D) at (0.5,-2.5);
+            \draw[blue, ultra thick] (A) -- (B) node[midway, above=2pt, text=black] {$L_1$};
+            \draw[blue, ultra thick] (B) -- (C) node[midway, right=3pt, text=black] {$L_2$};
+            \draw[blue, ultra thick] (C) -- (D) node[midway, below=2pt, text=black] {$L_3$};
+            \draw[blue, ultra thick] (D) -- (A) node[midway, left=3pt, text=black] {$L_2$};
+            \draw[dashed, gray] (D) -- (D |- A); \draw[dashed, gray] (C) -- (C |- A);
+            \fill (A) circle (2pt) node[above left=2pt] {A}; \fill (B) circle (2pt) node[above right=2pt] {B};
+            \fill (C) circle (2pt) node[below right=2pt] {C}; \fill (D) circle (2pt) node[below left=2pt] {D};
+            \pic [draw, ->, "$\theta_0$", angle eccentricity=1.5, angle radius=0.6cm] {angle = D--A--B};
+            \pic [draw, <-, "$\theta_0$", angle eccentricity=1.5, angle radius=0.6cm] {angle = A--B--C};
+            \node[text=red!80!black, align=center, font=\sansmath\sffamily\footnotesize] at (2,-5.8) {(a) Hệ không nở vì nhiệt};
+        \end{scope}
+
+        % --- HÌNH B ---
+        \begin{scope}[shift={(7,0)}]
+            \coordinate (A2) at (0,0); \coordinate (B2) at (4,0);
+            \coordinate (C2) at (3.8,-1.5); \coordinate (D2) at (0.2,-1.5);
+            \draw[gray!50, dashed] (0.5,-2.5) -- (3.5,-2.5);
+            \draw[blue, ultra thick] (A2) -- (B2) node[midway, above=2pt, text=black] {$L_1'$};
+            \draw[blue, ultra thick] (B2) -- (C2) node[midway, right=3pt, text=black] {$L_2'$};
+            \draw[blue, ultra thick] (C2) -- (D2) node[midway, below=2pt, text=black] {$L_3'$};
+            \draw[blue, ultra thick] (D2) -- (A2) node[midway, left=3pt, text=black] {$L_2'$};
+            \fill (A2) circle (2pt) node[above left=2pt] {A'}; \fill (B2) circle (2pt) node[above right=2pt] {B'};
+            \fill (C2) circle (2pt) node[below=3pt] {C'}; \fill (D2) circle (2pt) node[below=3pt] {D'};
+            \pic [draw, ->, "$\theta'$", angle eccentricity=1.5, angle radius=0.5cm] {angle = D2--A2--B2};
+            \pic [draw, <-, "$\theta'$", angle eccentricity=1.5, angle radius=0.5cm] {angle = A2--B2--C2};
+            \draw[<->, red] (4.5, -1.5) -- (4.5, -2.5) node[midway, right=4pt] {$\Delta h$};
+            \draw[dashed, gray] (C2) -- (4.5, -1.5); \draw[dashed, gray] (3.5,-2.5) -- (4.5, -2.5);
+            \node[text=red!80!black, align=center, font=\sansmath\sffamily\footnotesize] at (2,-5.8) {(b) Hệ co chiều thẳng đứng};
+        \end{scope}
+
+        % --- HÌNH C ---
+        \begin{scope}[shift={(14,0)}]
+            \coordinate (A3) at (0,0); \coordinate (B3) at (4,0);
+            \coordinate (C3) at (3.2,-3.5); \coordinate (D3) at (0.8,-3.5);
+            \draw[gray!50, dashed] (0.5,-2.5) -- (3.5,-2.5);
+            \draw[blue, ultra thick] (A3) -- (B3) node[midway, above=2pt, text=black] {$L_1''$};
+            \draw[blue, ultra thick] (B3) -- (C3) node[midway, right=3pt, text=black] {$L_2''$};
+            \draw[blue, ultra thick] (C3) -- (D3) node[midway, below=2pt, text=black] {$L_3''$};
+            \draw[blue, ultra thick] (D3) -- (A3) node[midway, left=3pt, text=black] {$L_2''$};
+            \fill (A3) circle (2pt) node[above left=2pt] {A''}; \fill (B3) circle (2pt) node[above right=2pt] {B''};
+            \fill (C3) circle (2pt) node[below=3pt] {C''}; \fill (D3) circle (2pt) node[below=3pt] {D''};
+            \pic [draw, ->, "$\theta''$", angle eccentricity=1.5, angle radius=0.7cm] {angle = D3--A3--B3};
+            \pic [draw, <-, "$\theta''$", angle eccentricity=1.5, angle radius=0.7cm] {angle = A3--B3--C3};
+            \draw[<->, red] (4.5, -2.5) -- (4.5, -3.5) node[midway, right=4pt] {$\Delta h$};
+            \draw[dashed, gray] (3.5,-2.5) -- (4.5, -2.5); \draw[dashed, gray] (C3) -- (4.5, -3.5);
+            \node[text=red!80!black, align=center, font=\sansmath\sffamily\footnotesize] at (2,-5.8) {(c) Hệ nở ra chiều thẳng đứng};
+        \end{scope}
+    \end{tikzpicture}
+\caption{Các trạng thái có thể của hệ khi nhận nhiệt}
+\label{P5_tikz1}
+\end{figure}

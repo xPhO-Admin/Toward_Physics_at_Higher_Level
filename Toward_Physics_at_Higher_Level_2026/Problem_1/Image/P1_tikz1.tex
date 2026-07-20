@@ -1,0 +1,26 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=0.48cm,y=0.58cm,>=Latex,line cap=round,line join=round]
+  \tikzset{
+    axis/.style={->,very thick,black},
+    originmark/.style={circle,fill=red!85!black,inner sep=1.7pt},
+    carcolor/.style={draw=magenta!85!black},
+    ball/.style={circle,fill=blue,draw=blue,inner sep=2.1pt},
+    helper/.style={thin,black!35}
+  }
+
+  \draw[axis] (0,0) -- (24,0) node[below right] {$x\,(\mathrm{m})$};
+  \node[originmark] at (0,0) {};
+  \node[above,text=black] at (0,0) {$O \equiv C$};
+  \coordinate (C0) at (0,0);
+  \node[ball,label={[above,text=blue]$B$}] (B0) at (10,0) {};
+  \draw[<->,helper] (0,-0.8) -- (10,-0.8);
+  \node[below,text=black] at (5,-0.8) {$10\,\mathrm{m}$};
+  \draw[->,very thick,magenta!85!black] (C0.center) ++(0,0) -- ++(5,0)
+    node[above,text=magenta!85!black] {$v_C=10\,\mathrm{m/s}$};
+  \draw[->,very thick,blue] (B0.center) ++(0,0) -- ++(2.5,0)
+    node[below,text=blue] {$v_B=5\,\mathrm{m/s}$};
+\end{tikzpicture}
+\caption{Hình minh họa}
+\label{P1_tikz1}
+\end{figure}

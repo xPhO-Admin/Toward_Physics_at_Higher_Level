@@ -1,0 +1,56 @@
+
+Khác với vật liệu truyền thống vốn bị giới hạn bởi đặc tính tự nhiên của nguyên tử, siêu cấu trúc (metamaterials) khai thác thiết kế hình học để kiến tạo các tính chất hiệu dụng mới. Trong bài tập này, ta sẽ tìm hiểu về tính dãn nở nhiệt một vài cấu trúc đơn giản.
+\vspace{8pt}
+
+Khi tăng nhiệt độ, ta quan sát thấy các vật liệu truyền thống bị nở ra. Một cách xấp xỉ, ta đo được: độ biến thiên chiều dài tỉ lệ thuận với kích thước ban đầu và độ biến thiên nhiệt độ:
+\[
+    \Delta L = L_0 \cdot \alpha \cdot \Delta T
+\]
+Cho biết $\alpha$ là hệ số nở nhiệt dài - một đại lượng đặc trưng cho tốc độ biến đổi kích thước tương đối của vật so với sự thay đổi nhiệt độ. Với mỗi vật liệu khác nhau, hệ số nở nhiệt sẽ khác nhau. Giá trị của $\alpha$ được tính dựa trên việc thực nghiệm. Tạ định nghĩa $\alpha_{eff}$ - hệ số nở nhiệt hiệu dụng là giá trị đại diện cho mức độ co giãn tổng thể của một cấu trúc phức tạp theo một phương nhất định khi nhiệt độ thay đổi. Nó được tính toán dựa trên phản ứng hình học của toàn bộ hệ thống thay vì chỉ dựa vào đặc tính vật liệu đơn thuần của từng thành phần riêng lẻ. Trong bài toán này, ta chỉ xét theo phương thẳng đứng. 
+
+\subsection*{Cấu trúc hình thang}
+Xét một cấu trúc hình thang cân $ABCD$ ($AB \parallel CD$). 
+Các thanh được nối với nhau bằng các bản lề nhỏ, nhẹ, cách nhiệt. Giữ cố định thanh AB. Thông số của các thanh được cho như sau: 
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\shortstack{Thanh} & \shortstack{Hệ số\\nở nhiệt} & \shortstack{Độ dài\\ban đầu} & \shortstack{Độ dài\\lúc sau} \\
+\hline
+$AB$ & $0$ & $L_1$ & $L_1$ \\
+\hline
+$AD$ & $\alpha_2$ & $L_2$ & $L_2'$ \\
+\hline
+$BC$ & $\alpha_2$ & $L_2$ & $L_2'$ \\
+\hline
+$CD$ & $\alpha_3$ & $L_3$ & $L_3'$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Giả sử độ dày của tất cả các thanh theo phương vuông góc mặt giấy là như nhau, thanh các thanh không nở theo phương vuông góc mặt giấy và có cùng tiết diện ngang, thẳng. Bỏ qua ứng suất nội các thanh.
+\vspace{8pt}
+
+\input{Problem_5/Image/P5_tikz1.tex}
+
+\newpage
+
+\begin{enumerate}[label=(\alph*)]
+\item Tính độ biến thiên theo phương thẳng đứng $\Delta h$ của hệ, từ đó suy ra $\alpha_{eff}$. Lập luận điều kiện của tỉ số $\alpha_2/\alpha_3$ để hệ đạt trạng thái nở/co/không đổi theo phương thẳng đứng. 
+
+\textbf{\underline{Chú ý toán học:}} Đối với một giá trị $x \ll 1$ ta có phép xấp xỉ sau:
+$(1 + x)^n \approx 1 + nx$
+\vspace{8pt}
+
+\item So sánh tỉ số thể tích lúc sau và ban đầu $V'/V$ khi hệ tăng $\Delta T$ nhiệt độ.
+\end{enumerate}
+
+\subsection*{Cấu trúc 3D}
+Xét một cấu trúc không gian gồm một khối lập phương có cạnh dài $L$, các cạnh này không chịu sự giãn nở nhiệt. Trên mỗi mặt của khối lập phương gắn một tấm hình vuông có cạnh dài $a$ $(a<L)$, với hệ số nở dài là $\alpha_1$,  nằm tại tâm của mặt đó và song song với mặt. Các đỉnh của mỗi tấm vuông được nối với các đỉnh tương ứng của mặt khối lập phương bằng các thanh thẳng có độ dài $b$, hệ số nở dài là $\alpha_2$. Giả sử các thanh mỏng, nhẹ và không bị uốn cong.
+
+\input{Problem_5/Image/P5_tikz2.tex}
+
+\begin{enumerate}[label=(\alph*)]
+\addtocounter{enumi}{2}
+    \item Tính tỉ số thể tích lúc sau và ban đầu $V'/V$ khi hệ tăng $\Delta T$ nhiệt độ. Tìm hệ số nở khối hiệu dụng $\beta_{eff}$ của cả khối.   
+\end{enumerate}
