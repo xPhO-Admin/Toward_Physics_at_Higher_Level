@@ -1,0 +1,179 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{vietnam}
+%\usepackage[english]{babel}
+\usepackage[T5]{fontenc}
+\usepackage[top=2cm, bottom=2cm, left=2cm,right=2cm]{geometry} %%%% Margin %%%%%
+\usepackage[dvipsnames]{xcolor}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{eqnarray}
+
+\usepackage{subcaption}
+\usepackage{array, lipsum, bibentry,fancyhdr}
+\usepackage{tabularx}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+\hbadness=10000
+\hfuzz=10pt
+\usepackage{enumitem}
+\usepackage[noframe]{showframe}
+\usepackage{framed}
+\usepackage{titling}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{authblk}
+\usepackage{eqparbox}
+\usepackage{multirow}
+
+%%%%%%%%%% Math %%%%%%%%%%%%%
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{siunitx} % unit
+
+
+%%%%%%%%%% Pictures drawing %%%%%%%%%%%%%
+
+\usepackage{pgfplots} %%%%%% Regression %%%%
+\pgfplotsset{compat = newest}
+\usepackage{pgfplotstable}
+\usepackage{tikz}
+\usepackage{tikz-3dplot} %%%%%% Draw %%%%%%
+\usepackage{tikz,tkz-euclide}
+\usepackage{sansmath}
+\usetikzlibrary{arrows,calc,patterns}
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{shapes.geometric}
+\usepackage{circuitikz} %%%%% Circuit %%%%
+\usetikzlibrary{decorations.pathmorphing,patterns}
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{shapes}
+\usepackage{tikz-3dplot}
+\usepackage{float} % THÊM GÓI NÀY ĐỂ ÉP VỊ TRÍ HÌNH
+
+% \usetikzlibrary{external}
+% \tikzexternalize
+
+\setlength{\unitlength}{1cm}
+
+%%%%%%%%%% Ref & Hyperlink %%%%%%%%%%%%%
+\usepackage{url}
+\usepackage{hyperref}
+\renewcommand{\figureautorefname}{Hình}
+\newcommand{\figref}[1]{\hyperref[#1]{hình~\ref*{#1}}}
+\newcommand{\Figref}[1]{\hyperref[#1]{Hình~\ref*{#1}}}
+\renewcommand{\eqref}[1]{\hyperref[#1]{(\ref*{#1})}}
+\usepackage{natbib}
+\hypersetup{
+	hypertexnames=false,
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,      
+	urlcolor=blue,
+    citecolor=blue,
+	pdftitle={Overleaf Example},
+	pdfpagemode=FullScreen,
+}
+
+\makeatletter
+\renewcommand*{\theHequation}{\theequation.\number\inputlineno}
+\makeatother
+
+%%%%%%%%%% Set Counter and Reference Equation %%%%%%%%%%
+
+
+%%%%%%%%%% Header & Footer %%%%%%%%%%%%%
+
+\setlength{\headheight}{15mm}
+\RequirePackage{fancyhdr}  % Needed to define custom headers/footers
+\RequirePackage{lastpage}  % Number of pages in the document
+\pagestyle{fancy}          % Enables the custom headers/footers
+% Headers
+\lhead{\includegraphics[width=.8in]{xPhO.png}}%
+\chead{}%
+\rhead{\small\sffamily\bfseries{Hướng tới chuyên lý 2026} --- \thepage/\pageref{LastPage}}
+% Footers
+\lfoot{}%
+\cfoot{}%
+\rfoot{}%
+\renewcommand{\headrulewidth}{1pt}% % header rule
+\renewcommand{\footrulewidth}{1pt}% % footer rule
+
+% \pagestyle{fancy}
+% 	\fancyhead[L]{\empty}
+% 	\fancyhead[R]{\empty}
+% 	\fancyhead[C]{\empty}
+% 	\fancyfoot[C]{\empty}
+% 	\fancyfoot[L]{\empty}
+% 	\renewcommand{\headrulewidth}{0pt}
+% 	\fancyfoot[C]{\normalcolor{\thepage/\pageref{LastPage}}}
+% 	\setcounter{page}{1}
+
+%%%%%%%%%% Color setup %%%%%%%%%%%%%
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+
+\RequirePackage{xcolor}
+\definecolor{wsdred}{HTML}{8E1728}
+\definecolor{wsdgrey}{HTML}{75787B}
+\definecolor{battleshipgrey}{rgb}{0.52, 0.52, 0.51}
+\renewcommand{\normalcolor}{\color{wsdred}}
+\colorlet{ColorOr}{white}
+
+%%%%%%%%%% Color Defining %%%%%%%%%%%%%%%%
+
+ \colorlet{ColorOr}{orange!6}
+ \colorlet{darkorange}{orange!50}
+ \colorlet{superdarkorange}{orange!110}
+ \definecolor{shadecolor2}{gray}{0.955}
+ 
+%%%%%%%%%%%%% Environments %%%%%%%%%%%%%%
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newenvironment{shaded1}
+{\def\FrameCommand{%
+  {\color{darkorange}\vrule width 3pt}%
+  \hspace{0pt}%
+  \fboxsep=\FrameSep \colorbox{ColorOr}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore\FrameRestore}}%
+{\endMakeFramed}
+\newenvironment{shaded2}
+{\def\FrameCommand{%
+  \fboxsep=\FrameSep \colorbox{shadecolor2}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore\FrameRestore}}%
+{\endMakeFramed}
+  
+%%%%%%%%%%%%% DOCUMENT %%%%%%%%%%%%%%
+
+\begin{document}
+	
+\setlength{\unitlength}{1cm}
+%%%%%%%%%% Title %%%%%%%%%%
+{\fontsize{50}{24}\fontfamily{phv}\fontseries{b}
+\LARGE \normalcolor{\textbf{Hướng tới chuyên lý 2026}}}
+
+{\sffamily \textcolor{blue}{\textbf{Câu lạc bộ vật lý xPhO}}}
+
+%%%%%%%%%% Problem %%%%%%%%%%
+%\vspace{5mm}
+
+%\input{Problem}
+
+%%%%%%%%%% Solution %%%%%%%%%%
+\vspace{5mm}
+\input{Solution}
+
+
+\begin{center}
+    \normalcolor{------------------------------------------------ HẾT ------------------------------------------------}
+\end{center}
+
+%%%%%%%%%% Acknowledgement %%%%%%%%%%
+\newpage
+\input{Acknowledgement}
+
+
+\end{document}
